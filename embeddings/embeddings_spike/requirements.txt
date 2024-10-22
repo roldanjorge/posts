@@ -1,0 +1,6 @@
+openai==1.51.2
+python-dotenv==1.0.1
+tenacity==9.0.0
+pandas==2.2.3
+scikit-learn==1.5.2
+matplotlib==3.9.2
