@@ -43,22 +43,28 @@ def run_pipeline(utterance: str, tokenizer, model: BertForSequenceClassification
             tokenizer: Tokenizer object
             model: Model object
     """
-    # Stage 1: Pre-processing
+    print(f"\n{50*'='}\nRunning pipeline: \"{utterance}\"\n{50*'='}")
+
+    # Stage 1: Preprocessing
+    print(f"{50*'-'}\nStage 1: Preprocessing \n{50*'-'}")
     inputs = tokenizer(utterance, return_tensors="pt")
     for _input, value in inputs.items():
-        print(f"{_input:<15}: \t{value}")
+        print(f"{_input:<15}: \n\t{value}")
 
     # Stage 2: Model inference
+    print(f"\n{50*'-'}\nStage 2: Model inference \n{50*'-'}")
     with torch.no_grad():
         logits = model(**inputs).logits
-    print(f"logits: \t{logits}")
+    print(f"logits: \n\t{logits}")
 
     # Stage 3: Post-processing
+    print(f"\n{50*'-'}\nStage 3: Preprocessing \n{50*'-'}")
     predictions = torch.nn.functional.softmax(logits, dim=-1)
-    print(predictions)
-    print(model.config.id2label)
+    print(f"probabilities: \n\t{predictions}")
+    print(f"id2label: \n\t{model.config.id2label}")
+    print(f"predictions:")
     for _id, label in model.config.id2label.items():
-        print(f"{label:<7}:\t{round(float(predictions[0][_id]), 3)}")
+        print(f"\t{label:<7}:\t{round(float(predictions[0][_id]), 3)}")
 
 
 def main():
