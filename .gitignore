@@ -162,3 +162,4 @@ cython_debug/
 .idea/
 posts/embeddings_spike/.env
 embeddings/embeddings_spike/data/
+*model/
