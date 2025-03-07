@@ -25,7 +25,7 @@ def get_model_tokenizer(checkpoint: str, output_dir: str) -> (AutoTokenizer, Ber
         tokenizer.save_pretrained(output_dir)
     else:
         print(f"Model {output_dir} stored locally. This local version will be uploaded")
-        model = BertForSequenceClassification.from_pretrained(checkpoint, num_labels=3)
+        model = BertForSequenceClassification.from_pretrained(checkpoint)
         tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
     return tokenizer, model
