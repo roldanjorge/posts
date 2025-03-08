@@ -70,7 +70,7 @@ def run_pipeline(utterance: str, tokenizer, model: BertForSequenceClassification
 def main():
     # Setup tokenizer and model
     checkpoint = "nlptown/bert-base-multilingual-uncased-sentiment"
-    output_dir = 'hf_bert_seq_class/model'
+    output_dir = 'model'
     tokenizer, model = get_model_tokenizer(checkpoint=checkpoint, output_dir=output_dir)
 
     # Positive review
