@@ -17,21 +17,15 @@ def get_model_tokenizer(checkpoint: str, output_dir: str) -> (AutoTokenizer, Ber
         tokenizer: Tokenizer object
         model: Model object
     """
-    if not os.path.exists(output_dir):
-        print(f"Model directory {output_dir} does not exist. It will be downloaded from Huggingface")
-        os.makedirs(output_dir)
+    os.makedirs(output_dir)
 
-        # Download model and tokenizer
-        model = BertForSequenceClassification.from_pretrained(checkpoint)
-        tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    # Download model and tokenizer
+    model = BertForSequenceClassification.from_pretrained(checkpoint)
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
-        # Store model and tokenizer in output_dir
-        model.save_pretrained(output_dir)
-        tokenizer.save_pretrained(output_dir)
-    else:
-        print(f"Model {output_dir} stored locally. This local version will be uploaded")
-        model = BertForSequenceClassification.from_pretrained(checkpoint)
-        tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    # Store model and tokenizer in output_dir
+    model.save_pretrained(output_dir)
+    tokenizer.save_pretrained(output_dir)
 
     return tokenizer, model
 
