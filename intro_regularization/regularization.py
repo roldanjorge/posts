@@ -6,6 +6,8 @@ matplotlib.use('TkAgg')
 # Create a 3D figure
 fig = plt.figure(figsize=(10, 7))
 ax = fig.add_subplot(111, projection='3d')
+# Set viewing angle
+ax.view_init(elev=10, azim=30)
 
 # Generate data for the plane
 x1 = np.linspace(-5, 5, 20)
@@ -14,16 +16,16 @@ x1, x2 = np.meshgrid(x1, x2)
 y = 2 * x1 + 3 * x2 + 1   # Example plane equation: y = 2x1 + 3x2 + 1
 
 # Plot the plane
-ax.plot_surface(x1, x2, y, alpha=0.5, cmap='viridis', edgecolor='k')
+ax.plot_surface(x1, x2, y, alpha=0.5, cmap='Grays', edgecolor='k')
 
 # Generate some sample data points
 np.random.seed(42)
-x1_data = np.random.uniform(-5, 5, 10)
-x2_data = np.random.uniform(-5, 5, 10)
-y_data = 3 * x1_data + 5 * x2_data + 1 + np.random.normal(scale=4, size=10)  # Add noise
+x1_data = np.random.uniform(-5, 5, 20)
+x2_data = np.random.uniform(-5, 5, 20)
+y_data = 3 * x1_data + 5 * x2_data + 3 + np.random.normal(scale=4, size=20)  # Add noise
 
 # Plot the data points
-ax.scatter(x1_data, x2_data, y_data, color='red', s=50, label='Data points')
+ax.scatter(x1_data, x2_data, y_data, color='blue', s=50, label='Data points')
 
 # Draw residual lines (vertical lines from the data point to the plane)
 for i in range(len(x1_data)):
