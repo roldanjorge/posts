@@ -7,7 +7,7 @@ matplotlib.use('TkAgg')
 fig = plt.figure(figsize=(10, 7))
 ax = fig.add_subplot(111, projection='3d')
 # Set viewing angle
-ax.view_init(elev=10, azim=30)
+ax.view_init(elev=10, azim=210)
 
 # Generate data for the plane
 x1 = np.linspace(-5, 5, 20)
@@ -22,7 +22,7 @@ ax.plot_surface(x1, x2, y, alpha=0.5, cmap='Grays', edgecolor='k')
 np.random.seed(42)
 x1_data = np.random.uniform(-5, 5, 20)
 x2_data = np.random.uniform(-5, 5, 20)
-y_data = 3 * x1_data + 5 * x2_data + 3 + np.random.normal(scale=4, size=20)  # Add noise
+y_data = 3 * x1_data + 8 * x2_data + 3 + np.random.normal(scale=4, size=20)  # Add noise
 
 # Plot the data points
 ax.scatter(x1_data, x2_data, y_data, color='blue', s=50, label='Data points')
