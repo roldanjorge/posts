@@ -38,16 +38,16 @@ for i in range(len(x1_data)):
     )
 
 # Add labels
-ax.set_xlabel('X1')
-ax.set_ylabel('X2')
-ax.set_zlabel('Y')
+ax.set_xlabel('$X_1$')
+ax.set_ylabel('$X_2$')
+ax.set_zlabel('$Y$')
 ax.set_title('3D RSS Visualization')
 
 # Add legend
 ax.legend()
 
 # Save the plot as an image (change format if needed)
-plt.savefig('rss_visualization.png', dpi=300, bbox_inches='tight')  # Save as PNG with high resolution
+plt.savefig('rss_visualization.png', dpi=200, bbox_inches='tight')  # Save as PNG with high resolution
 
 # Show the plot
 plt.show()
