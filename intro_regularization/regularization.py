@@ -20,7 +20,7 @@ ax.plot_surface(x, y, z, alpha=0.5, cmap='viridis', edgecolor='k')
 np.random.seed(42)
 x_data = np.random.uniform(-5, 5, 10)
 y_data = np.random.uniform(-5, 5, 10)
-z_data = 2 * x_data + 3 * y_data + 1 + np.random.normal(scale=2, size=10)  # Add noise
+z_data = 3 * x_data + 5 * y_data + 1 + np.random.normal(scale=4, size=10)  # Add noise
 
 # Plot the data points
 ax.scatter(x_data, y_data, z_data, color='red', s=50, label='Data points')
@@ -32,7 +32,7 @@ for i in range(len(x_data)):
         [x_data[i], x_data[i]],  # x-coordinates
         [y_data[i], y_data[i]],  # y-coordinates
         [z_data[i], z_plane],    # z-coordinates
-        color='gray', linestyle='--', linewidth=1
+        color='black', linestyle='-', linewidth=2
     )
 
 # Add labels
@@ -43,6 +43,9 @@ ax.set_title('3D RSS Visualization')
 
 # Add legend
 ax.legend()
+
+# Save the plot as an image (change format if needed)
+plt.savefig('rss_visualization.png', dpi=300, bbox_inches='tight')  # Save as PNG with high resolution
 
 # Show the plot
 plt.show()
