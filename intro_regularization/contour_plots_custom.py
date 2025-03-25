@@ -27,7 +27,7 @@ def create_error_grid(beta_hat):
 
 
 def plot_ridge_regularization(beta_hat):
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(16, 12))
     X, Y, Z = create_error_grid(beta_hat)
 
     plt.contourf(X, Y, Z, levels=20, cmap=cmap, alpha=0.7)
@@ -87,7 +87,7 @@ def plot_ridge_regularization(beta_hat):
 
 
 def plot_lasso_regularization(beta_hat):
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(16, 12))
     X, Y, Z = create_error_grid(beta_hat)
 
     plt.contourf(X, Y, Z, levels=20, cmap=cmap, alpha=0.7)
